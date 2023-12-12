@@ -1,0 +1,26 @@
+		AREA sum, CODE, READONLY
+		EXPORT __main
+		
+		ENTRY
+__main 	
+		MOV r0, #10
+		MOV r1, #3
+		ADD r2,r0,r1
+
+		END
+
+		AREA MYCODE, CODE, READONLY
+		ENTRY
+		EXPORT __main
+__main	MOV r0,#10
+		MOV r1,#0
+		MOV r2,#0
+loop 	ADD r2,r1,r2
+		ADD r1,r1,#1
+		CMP r1,r0
+		BCC loop
+
+stop	B stop
+		END
+
+
